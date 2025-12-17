@@ -6,12 +6,8 @@ export default defineConfig({
   plugins: [react()],
   server: {
     port: 5173,
-    proxy: {
-      '/api': {
-        target: 'http://localhost:5000',
-        changeOrigin: true,
-      },
-    },
+    // Proxy removed - using direct API URL from environment variable
+    // Backend deployed at: https://cloud-drive-backend-iqjt.onrender.com
   },
 });
 

@@ -5,10 +5,11 @@ import axios from 'axios';
  * Automatically includes JWT token in requests
  */
 const api = axios.create({
-  baseURL: import.meta.env.VITE_API_URL || 'http://localhost:5000/api',
+  baseURL: import.meta.env.VITE_API_URL || 'https://cloud-drive-backend-iqjt.onrender.com/api',
   headers: {
     'Content-Type': 'application/json',
   },
+  withCredentials: true, // Enable credentials for CORS
 });
 
 // Request interceptor: Add JWT token to all requests

@@ -66,11 +66,23 @@ frontend/
    npm install
    ```
 
-3. **Configure API URL (optional):**
-   Create `.env` file:
+3. **Configure API URL:**
+   
+   **Quick Setup:** Run the setup script:
+   ```bash
+   # On Unix/Mac
+   bash ../setup-env.sh
+   
+   # On Windows
+   ..\setup-env.bat
+   ```
+   
+   Or manually create `.env` file:
    ```env
    VITE_API_URL=http://localhost:5000/api
+   VITE_NODE_ENV=development
    ```
+   
    Default is `http://localhost:5000/api`
 
 ## 🚀 Running the Application
@@ -176,30 +188,54 @@ The app uses Tailwind CSS for styling:
 ## 🌐 Deployment
 
 ### Build for Production
+
+**Important:** Create `.env.production` file first:
+```env
+VITE_API_URL=https://your-backend-api.com/api
+VITE_NODE_ENV=production
+```
+
+Then build:
 ```bash
 npm run build
 ```
 
+### Quick Deployment Guide
+
+📖 **See `DEPLOYMENT_GUIDE.md` in the project root for complete instructions**
+
 ### Deployment Platforms
 
-#### Vercel
+#### Vercel (Recommended)
 1. Connect GitHub repository
-2. Set build command: `npm run build`
-3. Set output directory: `dist`
-4. Add environment variable: `VITE_API_URL`
+2. Set root directory: `Cloud_drive_Frontend`
+3. Build command: `npm run build`
+4. Output directory: `dist`
+5. Add environment variable: `VITE_API_URL=https://your-backend.com/api`
+6. Deploy!
 
 #### Netlify
 1. Connect GitHub repository
-2. Build command: `npm run build`
-3. Publish directory: `dist`
-4. Add environment variable: `VITE_API_URL`
+2. Base directory: `Cloud_drive_Frontend`
+3. Build command: `npm run build`
+4. Publish directory: `dist`
+5. Add environment variable: `VITE_API_URL=https://your-backend.com/api`
+6. Deploy!
 
 ### Environment Variables
 
-For production, set:
+**Development:**
+```env
+VITE_API_URL=http://localhost:5000/api
+```
+
+**Production:**
 ```env
 VITE_API_URL=https://your-backend-api.com/api
+VITE_NODE_ENV=production
 ```
+
+**Note:** After deploying frontend, remember to add the frontend URL to backend's `FRONTEND_URL` environment variable!
 
 ## 🐛 Troubleshooting
 
